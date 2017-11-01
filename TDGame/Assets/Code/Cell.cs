@@ -17,7 +17,7 @@ public class Cell : MonoBehaviour {
         Debug.Log(row + " "+ column);
 
     }
-	
+	    
 	// Update is called once per frame
 	void Update () {
 		
