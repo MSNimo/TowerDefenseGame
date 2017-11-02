@@ -44,13 +44,4 @@ public class Cell : MonoBehaviour
     {
        
     }
-    //void CastRay()
-    //{
-    //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-    //    RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
-    //    if (hit)
-    //    {
-    //       Debug.Log(hit.collider.gameObject.name);
-    //    }
-    //}
 }

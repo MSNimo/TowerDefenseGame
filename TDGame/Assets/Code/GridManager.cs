@@ -25,6 +25,7 @@ public class GridManager : MonoBehaviour {
                     GameObject go = hit.collider.gameObject;
                     active = go.GetComponent<Cell>();
                     Debug.Log(active.ReturnRow() + ", " + active.ReturnColumn());
+
                 }
             }
         }
