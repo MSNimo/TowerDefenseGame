@@ -9,6 +9,10 @@ TagManager:
   - BaseCell
   - SpawnerCell
   - Base
+  - Enemy
+  - Tower
+  - Grid
+  - TowerPiece
   layers:
   - Default
   - TransparentFX

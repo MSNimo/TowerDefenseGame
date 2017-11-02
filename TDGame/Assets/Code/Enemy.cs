@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour {
     private int health;
     private Vector3 velocity;
     private Vector3 position;
+    private int REGULAR_ENEMY_DAMAGE;
 
 	// Use this for initialization
 	void Start () {
@@ -14,6 +15,7 @@ public class Enemy : MonoBehaviour {
         health = 20;
         velocity = new Vector3 (5, 0, -5);
         position = transform.position;
+        REGULAR_ENEMY_DAMAGE = 10;
 	}
 
     public void Initialize () {
@@ -38,7 +40,7 @@ public class Enemy : MonoBehaviour {
     {
         if (collision.gameObject.tag.Equals("Base")) {
             Base home = collision.gameObject.GetComponent<Base>();
-            home.DamageBase(50);
+            home.DamageBase(REGULAR_ENEMY_DAMAGE);
             Die();
         }
 
