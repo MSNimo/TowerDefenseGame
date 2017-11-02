@@ -13,9 +13,9 @@ public class Base : MonoBehaviour {
 
     public void DamageBase (int damage) {
         health -= damage;
-        //HealthBar healthBar = FindObjectOfType<HealthBar>();
+        HealthBar healthBar = FindObjectOfType<HealthBar>();
         //Debug.Log(healthBar);
-        //healthBar.UpdateHealth(health);
+        healthBar.UpdateHealth(health);
     }
 	// Update is called once per frame
 	void Update () {
