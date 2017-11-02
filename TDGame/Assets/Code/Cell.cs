@@ -2,24 +2,55 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cell : MonoBehaviour {
+public class Cell : MonoBehaviour
+{
 
     private Vector3 position;
     private int row;
     private int column;
-    private bool built = false;
+    private bool built;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         position = transform.position;
-        row = (int) position[2] / 8 + 2;
-        column = (int) position[0] / 8 + 2;
-        Debug.Log(row + " "+ column);
-
+        row = (int)position[2] / 8 + 3;
+        column = (int)position[0] / 8 + 3;
+        built = false;
     }
-	    
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    public Vector3 ReturnPosition()
+    {
+        return position;
+    }
+
+    public int ReturnRow()
+    {
+        return row;
+    }
+
+    public int ReturnColumn()
+    {
+        return column;
+    }
+
+    public bool IsBuilt()
+    {
+        return built;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+       
+    }
+    //void CastRay()
+    //{
+    //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+    //    RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
+    //    if (hit)
+    //    {
+    //       Debug.Log(hit.collider.gameObject.name);
+    //    }
+    //}
 }
