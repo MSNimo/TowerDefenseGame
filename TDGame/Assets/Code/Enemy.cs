@@ -31,7 +31,8 @@ public class Enemy : MonoBehaviour {
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag.Equals("Base")) {
-            //DamageBase(10);
+            Base home = collision.gameObject.GetComponent<Base>();
+            home.DamageBase(10);
             Die();
         }
 
@@ -41,6 +42,6 @@ public class Enemy : MonoBehaviour {
     }
 
     private void Die() {
-        Destroy(this);
+        Destroy(gameObject);
     }
 }
