@@ -16,6 +16,12 @@ public class Enemy : MonoBehaviour {
         position = transform.position;
 	}
 
+    public void Initialize () {
+        health = 20;
+        velocity = new Vector3 (5, 0, -5);
+        position = new Vector3 (-16, 1.5f, 16);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -32,7 +38,7 @@ public class Enemy : MonoBehaviour {
     {
         if (collision.gameObject.tag.Equals("Base")) {
             Base home = collision.gameObject.GetComponent<Base>();
-            home.DamageBase(10);
+            home.DamageBase(50);
             Die();
         }
 

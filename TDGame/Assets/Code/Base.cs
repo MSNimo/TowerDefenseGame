@@ -19,7 +19,7 @@ public class Base : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
-        if (health < 0) {
+        if (health < 0.5) {
             Destroy(gameObject);
         }
 	}

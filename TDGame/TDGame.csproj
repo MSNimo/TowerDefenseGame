@@ -83,6 +83,7 @@
     <Compile Include="Assets\Code\Enemy.cs" />
     <Compile Include="Assets\Code\GridManager.cs" />
     <Compile Include="Assets\Code\HealthBar.cs" />
+    <Compile Include="Assets\Code\Spawner.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
