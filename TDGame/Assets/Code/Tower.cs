@@ -6,18 +6,19 @@ public class Tower : MonoBehaviour {
 
     private Vector3 _pos;
     private Quaternion _rot;
+    private float TOWER_RANGE; 
 
 	// Use this for initialization
 	void Start () {
 
         _pos = transform.position;
         _rot = transform.rotation;
-        Debug.Log(_rot);
+        TOWER_RANGE = 40;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        Collider[] hitColliders = Physics.OverlapSphere(_pos, 40);
+        Collider[] hitColliders = Physics.OverlapSphere(_pos, TOWER_RANGE);
         var dist = float.MaxValue;
         Vector3 direction = new Vector3(0,0,0);
         bool changedirection = false;
@@ -31,13 +32,6 @@ public class Tower : MonoBehaviour {
                 if (tempdist < dist) {
                     dist = tempdist;
                     direction = targetpos - _pos;
-                    //direction.x = direction.x * -1f;
-                    //Debug.Log("Pos");
-                    //Debug.Log(_pos);
-                    //Debug.Log("Target");
-                    //Debug.Log(targetpos);
-                    //Debug.Log("Direction");
-                    //Debug.Log(direction);
                     changedirection = true;
                 }
             }
@@ -47,8 +41,12 @@ public class Tower : MonoBehaviour {
         if (changedirection) {
             _rot = Quaternion.LookRotation(direction);
             _rot *= Quaternion.Euler(0, -90, 0);
+            Gun.HasTarget(true);
         }
 
+        else Gun.HasTarget(false);
+
         transform.rotation = _rot;
+        
     }
 }

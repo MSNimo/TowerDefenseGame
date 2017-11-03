@@ -4,9 +4,24 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+    private Vector3 _pos;
+    private Vector3 _velocity;
+    private Quaternion _rot;
+
+    // Use this for initialization
+
+    public void Initialize()
+    {
+        _pos = transform.position;
+        _rot = transform.rotation;
+    }
+
+    public void SetVelocity (Vector3 direction) {
+
+        _velocity = direction * 8f;
+    } 
+    void Start () {
+		//_pos
 	}
 	
 	// Update is called once per frame
