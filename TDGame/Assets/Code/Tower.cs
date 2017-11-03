@@ -14,12 +14,13 @@ public class Tower : MonoBehaviour {
 
         _pos = transform.position;
         _rot = transform.rotation;
-        TOWER_RANGE = 40;
+        TOWER_RANGE = 30;
         _gun = gameObject.GetComponent<Gun>();
     }
 	
 	// Update is called once per frame
 	void Update () {
+
         Collider[] hitColliders = Physics.OverlapSphere(_pos, TOWER_RANGE);
         var dist = float.MaxValue;
         Vector3 direction = new Vector3(0,0,0);
@@ -41,6 +42,7 @@ public class Tower : MonoBehaviour {
         }
 
         if (changedirection) {
+
             Vector3 tempdirection = direction;
             tempdirection.y = 0;
             _rot = Quaternion.LookRotation(tempdirection);
@@ -48,7 +50,6 @@ public class Tower : MonoBehaviour {
             _gun.Fire(tempdirection);
         }
 
-        transform.rotation = _rot;
-        
+        transform.rotation = _rot; 
     }
 }

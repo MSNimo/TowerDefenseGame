@@ -18,6 +18,7 @@ public class Gun : MonoBehaviour {
     }
 
     private void ForceSpawn(Vector3 direction) {
+
         Vector3 origin = _pos;
         GameObject bullet = (GameObject)Object.Instantiate(_bullet, _pos, transform.rotation);
         bullet.GetComponent<Bullet>().Initialize(origin, direction);
@@ -28,14 +29,15 @@ public class Gun : MonoBehaviour {
         Vector3 direction = target;
 
         if (currentTime > COOL_DOWN) {
+
             ForceSpawn(direction);
             currentTime = 0f;
-        }
-        
+        }     
 
     }
-    // Update is called once per frame
+
     void Update() {
+
         currentTime += Time.deltaTime;
     } 
 }

@@ -7,8 +7,9 @@ public class Spawner : MonoBehaviour {
     float WAIT_TIME;
     float currentTime;
     private Object _enemy;
-    // Use this for initialization
+
     void Start () {
+
         WAIT_TIME = 5f;
         currentTime = 0f;
         _enemy = Resources.Load("Enemy");
@@ -16,11 +17,11 @@ public class Spawner : MonoBehaviour {
     }
 
     private void ForceSpawn() {
+
         GameObject enemy = (GameObject) Object.Instantiate(_enemy);
         enemy.GetComponent<Enemy>().Initialize();
     }
 
-	// Update is called once per frame
 	void Update () {
 
         if (currentTime < WAIT_TIME) {
@@ -31,6 +32,5 @@ public class Spawner : MonoBehaviour {
             currentTime = 0f;
             ForceSpawn();
         }
-		
 	}
 }
