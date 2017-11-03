@@ -7,7 +7,7 @@ public class Gun : MonoBehaviour {
     private Vector3 _pos;
     private float COOL_DOWN;
     private float currentTime;
-    private static bool hasTarget;
+    private bool hasTarget;
     private Object _bullet;
 
     void Start () {
@@ -18,22 +18,18 @@ public class Gun : MonoBehaviour {
         _bullet = Resources.Load("Bullet");
     }
 
-    public static void HasTarget(bool isThereOne) {
-
-       hasTarget = isThereOne;
-    }
     private void ForceSpawn(Vector3 direction) {
-
+        Vector3 nosetip = new Vector3(1, 1.5f, 0);
+        Vector3 origin = _pos + nosetip;
         GameObject bullet = (GameObject)Object.Instantiate(_bullet, _pos, transform.rotation);
-        bullet.GetComponent<Bullet>().Initialize();
-        //
+        bullet.GetComponent<Bullet>().Initialize(_pos, direction);
     }
 
     public void Fire(Vector3 target) {
 
         Vector3 direction = target - _pos;
 
-        if (currentTime > COOL_DOWN && hasTarget) {
+        if (currentTime > COOL_DOWN) {
             ForceSpawn(direction);
             currentTime = 0f;
         }

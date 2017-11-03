@@ -10,16 +10,17 @@ public class Bullet : MonoBehaviour {
 
     // Use this for initialization
 
-    public void Initialize()
+    public void Initialize(Vector3 origin, Vector3 direction)
     {
-        _pos = transform.position;
+        _pos = origin;
         _rot = transform.rotation;
+        _velocity = direction * 8f;
+        Debug.Log("Position");
+        Debug.Log(_pos);
+        Debug.Log("Velocity");
+        Debug.Log(_velocity);
     }
 
-    public void SetVelocity (Vector3 direction) {
-
-        _velocity = direction * 8f;
-    } 
     void Start () {
 		//_pos
 	}

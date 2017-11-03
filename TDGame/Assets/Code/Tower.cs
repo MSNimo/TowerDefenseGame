@@ -6,7 +6,8 @@ public class Tower : MonoBehaviour {
 
     private Vector3 _pos;
     private Quaternion _rot;
-    private float TOWER_RANGE; 
+    private float TOWER_RANGE;
+    private Gun _gun;
 
 	// Use this for initialization
 	void Start () {
@@ -14,6 +15,7 @@ public class Tower : MonoBehaviour {
         _pos = transform.position;
         _rot = transform.rotation;
         TOWER_RANGE = 40;
+        _gun = gameObject.GetComponent<Gun>();
     }
 	
 	// Update is called once per frame
@@ -41,10 +43,8 @@ public class Tower : MonoBehaviour {
         if (changedirection) {
             _rot = Quaternion.LookRotation(direction);
             _rot *= Quaternion.Euler(0, -90, 0);
-            Gun.HasTarget(true);
+            _gun.Fire(direction);
         }
-
-        else Gun.HasTarget(false);
 
         transform.rotation = _rot;
         
