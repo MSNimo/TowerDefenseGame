@@ -7,7 +7,6 @@ public class Gun : MonoBehaviour {
     private Vector3 _pos;
     private float COOL_DOWN;
     private float currentTime;
-    private bool hasTarget;
     private Object _bullet;
 
     void Start () {
@@ -19,14 +18,14 @@ public class Gun : MonoBehaviour {
     }
 
     private void ForceSpawn(Vector3 direction) {
-        Vector3 origin = _pos ;//+ (direction)/direction.magnitude;
+        Vector3 origin = _pos;
         GameObject bullet = (GameObject)Object.Instantiate(_bullet, _pos, transform.rotation);
         bullet.GetComponent<Bullet>().Initialize(origin, direction);
     }
 
     public void Fire(Vector3 target) {
 
-        Vector3 direction = target - _pos;
+        Vector3 direction = target;
 
         if (currentTime > COOL_DOWN) {
             ForceSpawn(direction);
@@ -37,7 +36,6 @@ public class Gun : MonoBehaviour {
     }
     // Update is called once per frame
     void Update() {
-
         currentTime += Time.deltaTime;
     } 
 }

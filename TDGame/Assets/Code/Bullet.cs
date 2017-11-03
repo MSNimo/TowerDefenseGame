@@ -13,13 +13,7 @@ public class Bullet : MonoBehaviour {
     public void Initialize(Vector3 origin, Vector3 direction)
     {
         _pos = origin;
-        //_rot = transform.rotation;
-        _velocity = direction;
-        //Debug.Log("Position");
-        //Debug.Log(_pos);
-        Debug.Log("Velocity");
-        Debug.Log(_velocity);
-
+        _velocity = direction.normalized * 100f;
     }
 
     void Start () {
@@ -28,7 +22,33 @@ public class Bullet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+
+        RaycastHit hit;
+
+        if (Physics.SphereCast(_pos, 1, _velocity, out hit, 2))
+        {
+            if (hit.collider.tag == "Enemy")
+            {
+                GameObject go = hit.collider.gameObject;
+                Enemy _enemy = go.GetComponent<Enemy>();
+                _enemy.TakeDamage(10);
+                Debug.Log("Hit");
+                Die();
+
+            }
+        }
+
         _pos = _pos + _velocity * Time.deltaTime;
-        gameObject.GetComponent<Rigidbody>().position = _pos;
-	}
+        transform.position = _pos;
+
+    }
+
+    //private void OnCollisionEnter(Collision collision)
+    //{
+        //Die();
+    //}
+
+    private void Die() {
+        Destroy(gameObject);
+    }
 }

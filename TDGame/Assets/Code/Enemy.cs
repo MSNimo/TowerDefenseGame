@@ -13,19 +13,19 @@ public class Enemy : MonoBehaviour {
 	void Start () {
 
         health = 20;
-        velocity = new Vector3 (5, 0, -5);
+        velocity = new Vector3 (3, 0, -3);
         position = transform.position;
         REGULAR_ENEMY_DAMAGE = 10;
 	}
 
     public void Initialize () {
         health = 20;
-        velocity = new Vector3 (5, 0, -5);
+        velocity = new Vector3 (3, 0, -3);
         position = new Vector3 (-16, 1.5f, 16);
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (health < 0) {
             Die();
@@ -43,13 +43,13 @@ public class Enemy : MonoBehaviour {
             home.DamageBase(REGULAR_ENEMY_DAMAGE);
             Die();
         }
-
-        if (collision.gameObject.tag.Equals("Bullet")) {
-                health -= 10;
-            }
     }
 
     private void Die() {
         Destroy(gameObject);
+    }
+
+    public void TakeDamage(int damage) {
+        health -= damage;
     }
 }

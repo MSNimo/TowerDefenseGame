@@ -9,7 +9,7 @@ public class Spawner : MonoBehaviour {
     private Object _enemy;
     // Use this for initialization
     void Start () {
-        WAIT_TIME = 4f;
+        WAIT_TIME = 5f;
         currentTime = 0f;
         _enemy = Resources.Load("Enemy");
 
