@@ -19,10 +19,9 @@ public class Gun : MonoBehaviour {
     }
 
     private void ForceSpawn(Vector3 direction) {
-        Vector3 nosetip = new Vector3(1, 1.5f, 0);
-        Vector3 origin = _pos + nosetip;
+        Vector3 origin = _pos ;//+ (direction)/direction.magnitude;
         GameObject bullet = (GameObject)Object.Instantiate(_bullet, _pos, transform.rotation);
-        bullet.GetComponent<Bullet>().Initialize(_pos, direction);
+        bullet.GetComponent<Bullet>().Initialize(origin, direction);
     }
 
     public void Fire(Vector3 target) {

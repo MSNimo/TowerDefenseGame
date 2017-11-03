@@ -43,6 +43,7 @@ public class Tower : MonoBehaviour {
         if (changedirection) {
             _rot = Quaternion.LookRotation(direction);
             _rot *= Quaternion.Euler(0, -90, 0);
+            Debug.Log(direction);
             _gun.Fire(direction);
         }
 
