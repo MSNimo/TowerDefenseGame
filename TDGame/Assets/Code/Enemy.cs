@@ -28,7 +28,8 @@ public class Enemy : MonoBehaviour {
     void FixedUpdate() {
 
         if (health < 0.05) {
-
+            Game gameData = FindObjectOfType<Game>();
+            gameData.UpdateCash(10);
             Die();
         }
 

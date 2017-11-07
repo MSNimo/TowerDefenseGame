@@ -7,6 +7,7 @@ public class Cell : MonoBehaviour {
     private Vector3 position;
     private int row;
     private int column;
+    private int diagonal;
     private bool built;
 
     void Start () {
@@ -14,6 +15,7 @@ public class Cell : MonoBehaviour {
         position = transform.position;
         row = (int) position[2] / 8 + 3;
         column = (int) position[0] / 8 + 3;
+        diagonal = (int) -1 * (row - column) + 3;
         built = false;
     }
 
@@ -30,6 +32,12 @@ public class Cell : MonoBehaviour {
     public int ReturnColumn () {
 
         return column;
+    }
+
+    public int ReturnDiagonal()
+    {
+
+        return diagonal;
     }
 
     public bool IsBuilt () {
