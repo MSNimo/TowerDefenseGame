@@ -15,7 +15,7 @@ public class Cell : MonoBehaviour {
         position = transform.position;
         row = (int) position[2] / 8 + 3;
         column = (int) position[0] / 8 + 3;
-        diagonal = (int) -1 * (row - column) + 3;
+        diagonal = (int) -1 * (row - column) + 4;
         built = false;
     }
 

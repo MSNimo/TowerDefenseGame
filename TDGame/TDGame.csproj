@@ -82,6 +82,7 @@
     <Compile Include="Assets\Code\Bullet.cs" />
     <Compile Include="Assets\Code\CashUI.cs" />
     <Compile Include="Assets\Code\Cell.cs" />
+    <Compile Include="Assets\Code\CellMenu.cs" />
     <Compile Include="Assets\Code\Enemy.cs" />
     <Compile Include="Assets\Code\Game.cs" />
     <Compile Include="Assets\Code\GridManager.cs" />

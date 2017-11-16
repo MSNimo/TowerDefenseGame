@@ -5,11 +5,36 @@ using UnityEngine;
 public class Game : MonoBehaviour {
 
     private int playerCash;
-	// Use this for initialization
-	void Start () {
+    private Cell active;
+    // Use this for initialization
+    void Start () {
         int STARTING_CASH = 100;
         playerCash = STARTING_CASH;
+        active = null;
 	}
+
+    public void AssessCell(Cell cell) {
+
+        active = cell;
+
+        if (active == null)
+        {
+            //Destroy Current Menu Instance
+        }
+
+        else {
+
+            if (active.IsBuilt())
+            {
+                //Call Upgrade Menu
+            }
+
+            else
+            {
+                //Call Build Menu
+            }
+        }
+    }
 
     public void UpdateCash(int change) {
         playerCash += change;
