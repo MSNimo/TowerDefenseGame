@@ -9,6 +9,7 @@ public class Cell : MonoBehaviour {
     private int column;
     private int diagonal;
     private bool built;
+    private Tower tower;
 
     void Start () {
 
@@ -17,6 +18,7 @@ public class Cell : MonoBehaviour {
         column = (int) position[0] / 8 + 3;
         diagonal = (int) -1 * (row - column) + 4;
         built = false;
+        tower = null;
     }
 
     public Vector3 ReturnPosition () {
@@ -45,6 +47,21 @@ public class Cell : MonoBehaviour {
         return built;
     }
 
+    public void togglebuild() {
+
+        if (built) built = false;
+        else built = true;
+    }
+
+    public void SetAssociatedTower(Tower _tower) {
+
+        tower = _tower;
+    }
+
+    public Tower GetTower() {
+
+        return tower;
+   }
     void Update () {
        
     }

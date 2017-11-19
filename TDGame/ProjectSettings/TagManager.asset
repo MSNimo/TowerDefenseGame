@@ -14,6 +14,10 @@ TagManager:
   - Grid
   - TowerPiece
   - Bullet
+  - SellTowerButton
+  - BuildBasicTowerButton
+  - Undefined
+  - SellBasicTowerButton
   layers:
   - Default
   - TransparentFX

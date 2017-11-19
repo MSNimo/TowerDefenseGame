@@ -23,7 +23,7 @@ public class GridManager : MonoBehaviour
             if (active != null) {
 
                 GameObject ogGo = active.gameObject;
-                //Debug.Log(active.ReturnRow() + ", " + active.ReturnColumn() + ", " + active.ReturnDiagonal());
+               
                 SpriteRenderer ogSpriteRenderer = ogGo.GetComponentInChildren<SpriteRenderer>();
 
                 if (active.ReturnDiagonal() % 2 == 1) {
@@ -54,19 +54,24 @@ public class GridManager : MonoBehaviour
 
     void Update() {
 
-        if (Input.GetMouseButtonDown(0)){
+        if (Input.GetMouseButtonDown(0)) {
             
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            
-            if (Physics.Raycast(ray, out hit, 100)) {  
-                
+            RaycastHit [] hits = Physics.RaycastAll(ray);
+
+            foreach (RaycastHit hit in hits) {
+
                 if (hit.collider.tag == "Cell") {
 
                     GameObject go = hit.collider.gameObject;
                     SetActiveCell(go);
                 }
-            }  
+            }
         }
+    }
+
+    public void Deactive(GameObject go) {
+
+        SetActiveCell(go);
     }
 }

@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class CashUI : MonoBehaviour {
 
     private Text cashText;
-    private int cash;
+    private float cash;
 	
 	void Start () {
-
+        
         int STARTING_CASH = 100;
         cash = STARTING_CASH;
         cashText = GetComponent<Text>();
@@ -17,7 +17,7 @@ public class CashUI : MonoBehaviour {
 
 	}
 
-    public void UpdateCashText(int change) {
+    public void UpdateCashText(float change) {
         cash += change;
         cashText.text = "Cash: $" + cash;
     }
