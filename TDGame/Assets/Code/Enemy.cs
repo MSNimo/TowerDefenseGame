@@ -5,24 +5,17 @@ using UnityEngine;
 public class Enemy : MonoBehaviour {
 
     private int health;
-    private Vector3 velocity;
-    private Vector3 position;
     private int REGULAR_ENEMY_DAMAGE;
-
 
 	void Start () {
 
         health = 21;
-        velocity = new Vector3 (3, 0, -3);
-        position = transform.position;
         REGULAR_ENEMY_DAMAGE = 10;
 	}
 
     public void Initialize () {
 
         health = 21;
-        velocity = new Vector3 (3, 0, -3);
-        position = new Vector3 (-16, 1.5f, 16);
     }
 
     void FixedUpdate() {
@@ -32,10 +25,6 @@ public class Enemy : MonoBehaviour {
             gameData.UpdateCash(10);
             Die();
         }
-
-        Vector3 deltaPos = velocity * Time.deltaTime;
-        position += deltaPos;
-        transform.position = position;
     }
 
     private void OnCollisionEnter(Collision collision) {

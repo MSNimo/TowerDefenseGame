@@ -15,7 +15,7 @@ public class Game : MonoBehaviour {
     // Use this for initialization
 
     void Start () {
-        int STARTING_CASH = 100;
+        int STARTING_CASH = 200;
         playerCash = STARTING_CASH;
         active = null;
         _bmenu = Resources.Load("BuildMenu");

@@ -62,9 +62,10 @@ public class GridManager : MonoBehaviour
             foreach (RaycastHit hit in hits) {
 
                 if (hit.collider.tag == "Cell") {
-
+                  
                     GameObject go = hit.collider.gameObject;
                     SetActiveCell(go);
+                    break;
                 }
             }
         }

@@ -12,10 +12,6 @@ public class Tower : MonoBehaviour {
     // Use this for initialization
     void Start() {
 
-        //_pos = transform.position;
-        //_rot = transform.rotation;
-        //TOWER_RANGE = 30;
-        //_gun = gameObject.GetComponent<Gun>();
     }
 
     public void Initialize(Cell cell) {
