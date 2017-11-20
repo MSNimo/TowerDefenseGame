@@ -54,10 +54,6 @@ public class UpgradeMenuUI : MonoBehaviour {
         gridManager.Deactive(active.gameObject);
         gridManager.RecordTowerRomoval(row, col);
 
-        //gridManager.FreeRow(row);
-        //gridManager.FreeCol(col);
-        //gridManager.FreeDiag(diag);
-
         Hide();
     }
 

@@ -12,7 +12,7 @@ public class BuildMenuUI : MonoBehaviour {
     private GridManager gridManager;
     private int row;
     private int col;
-    private int diag;
+    private bool CANT_PLACE_HERE_CAUSE_PATH_BLOCKED;
 
     private int COST_BASIC_TOWER;
 
@@ -23,7 +23,8 @@ public class BuildMenuUI : MonoBehaviour {
         gridManager = FindObjectOfType<GridManager>();
         row = active.ReturnRow();
         col = active.ReturnColumn();
-        diag = active.ReturnDiagonal();
+        if (gridManager.WillBlockPaths(row - 1, col - 1)) CANT_PLACE_HERE_CAUSE_PATH_BLOCKED = true;
+        else CANT_PLACE_HERE_CAUSE_PATH_BLOCKED = false;
     }
 
     public void Initialize(Cell cell) {
@@ -55,9 +56,6 @@ public class BuildMenuUI : MonoBehaviour {
         active.SetAssociatedTower(_bTower.GetComponent<Tower>());
         active.togglebuild();
 
-        //gridManager.OccupyRow(row);
-        //gridManager.OccupyCol(col);
-        //gridManager.OccupyDiag(diag);
         Hide();
     }
 
@@ -70,7 +68,9 @@ public class BuildMenuUI : MonoBehaviour {
             buildBasicTower.interactable = false;
         }
 
-        else if (gridManager.WillBlockPaths(row-1, col-1)) buildBasicTower.interactable = false; 
+        else if (CANT_PLACE_HERE_CAUSE_PATH_BLOCKED) buildBasicTower.interactable = false; 
+
+        else if (active.EnemyAbove()) buildBasicTower.interactable = false; 
 
         else buildBasicTower.interactable = true;
 

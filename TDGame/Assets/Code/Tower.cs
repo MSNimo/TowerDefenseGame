@@ -59,7 +59,7 @@ public class Tower : MonoBehaviour {
             Vector3 tempdirection = direction;
             tempdirection.y = 0;
             _rot = Quaternion.LookRotation(tempdirection);
-            _rot *= Quaternion.Euler(0, -92, 0);
+            _rot *= Quaternion.Euler(0, -90, 0);
             _gun.Fire(tempdirection);
         }
 

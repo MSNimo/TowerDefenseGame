@@ -117,9 +117,6 @@ public class GridManager : MonoBehaviour
         if (col == 0) upwall = 1;
         if (col == 4) downwall = 1;
 
-        Debug.Log("Row: " + row);
-        Debug.Log("Col: " + col);
-
         if (visited[row][col] == false) {
             visited[row][col] = true;
 

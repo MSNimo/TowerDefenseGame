@@ -10,7 +10,7 @@ public class Spawner : MonoBehaviour {
 
     void Start () {
 
-        WAIT_TIME = 1f;
+        WAIT_TIME = 5f;
         currentTime = 0f;
         _enemy = Resources.Load("Enemy");
 

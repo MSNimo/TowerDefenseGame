@@ -62,6 +62,17 @@ public class Cell : MonoBehaviour {
 
         return tower;
    }
+
+    public bool EnemyAbove() {
+
+        Collider[] coll = Physics.OverlapBox(position, new Vector3(4, 4, 4));
+
+        foreach (Collider collider in coll) {
+
+            if (collider.gameObject.tag.Equals("Enemy")) return true;
+        } 
+        return false;
+    }
     void Update () {
        
     }
