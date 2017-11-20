@@ -9,6 +9,10 @@ public class BuildMenuUI : MonoBehaviour {
     private Button buildBasicTower;
     private Cell active;
     private Game game;
+    private GridManager gridManager;
+    private int row;
+    private int col;
+    private int diag;
 
     private int COST_BASIC_TOWER;
 
@@ -16,7 +20,10 @@ public class BuildMenuUI : MonoBehaviour {
 
         game = FindObjectOfType<Game>();
         COST_BASIC_TOWER = game.GetCostBasicTower();
-
+        gridManager = FindObjectOfType<GridManager>();
+        row = active.ReturnRow();
+        col = active.ReturnColumn();
+        diag = active.ReturnDiagonal();
     }
 
     public void Initialize(Cell cell) {
@@ -43,11 +50,14 @@ public class BuildMenuUI : MonoBehaviour {
         _bTower.GetComponent<Tower>().Initialize(active);
         game.UpdateCash(-1 * COST_BASIC_TOWER);
 
-        GridManager gridManager = FindObjectOfType<GridManager>();
         gridManager.Deactive(active.gameObject);
+        gridManager.RecordTowerPlacement(row, col);
         active.SetAssociatedTower(_bTower.GetComponent<Tower>());
         active.togglebuild();
 
+        //gridManager.OccupyRow(row);
+        //gridManager.OccupyCol(col);
+        //gridManager.OccupyDiag(diag);
         Hide();
     }
 
@@ -59,6 +69,8 @@ public class BuildMenuUI : MonoBehaviour {
         if (cash - COST_BASIC_TOWER < -0.05) {
             buildBasicTower.interactable = false;
         }
+
+        else if (gridManager.WillBlockPaths(row-1, col-1)) buildBasicTower.interactable = false; 
 
         else buildBasicTower.interactable = true;
 

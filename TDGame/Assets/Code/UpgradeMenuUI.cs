@@ -8,6 +8,10 @@ public class UpgradeMenuUI : MonoBehaviour {
     private Button sellBasicTower;
     private Cell active;
     private Game game;
+    private GridManager gridManager;
+    private int row;
+    private int col;
+    private int diag;
 
     private float SELL_BASIC_TOWER;
 
@@ -16,15 +20,19 @@ public class UpgradeMenuUI : MonoBehaviour {
 
         game = FindObjectOfType<Game>();
         SELL_BASIC_TOWER = game.GetCostBasicTower() * 0.9f;
-	}
+        gridManager = FindObjectOfType<GridManager>();
+
+        row = active.ReturnRow();
+        col = active.ReturnColumn();
+        diag = active.ReturnDiagonal();
+    }
 
     public void Initialize(Cell cell) {
 
         active = cell;
         Button[] buttons = gameObject.GetComponentsInChildren<Button>();
 
-        foreach (Button button in buttons)
-        {
+        foreach (Button button in buttons) {
 
             if (button.tag == "SellBasicTowerButton") sellBasicTower = button;
         }
@@ -43,8 +51,12 @@ public class UpgradeMenuUI : MonoBehaviour {
         active.SetAssociatedTower(null);
         active.togglebuild();
 
-        GridManager gridManager = FindObjectOfType<GridManager>();
         gridManager.Deactive(active.gameObject);
+        gridManager.RecordTowerRomoval(row, col);
+
+        //gridManager.FreeRow(row);
+        //gridManager.FreeCol(col);
+        //gridManager.FreeDiag(diag);
 
         Hide();
     }

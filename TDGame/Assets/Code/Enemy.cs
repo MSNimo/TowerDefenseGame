@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour {
 
 	void Start () {
 
-        health = 21;
+        health = 61;
         REGULAR_ENEMY_DAMAGE = 10;
 	}
 
