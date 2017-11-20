@@ -5,24 +5,25 @@ using UnityEngine;
 public class Enemy : MonoBehaviour {
 
     private int health;
+    private int value;
     private int REGULAR_ENEMY_DAMAGE;
 
 	void Start () {
 
-        health = 61;
         REGULAR_ENEMY_DAMAGE = 10;
-	}
+    }
 
-    public void Initialize () {
+    public void Initialize (int enemyHealth, int enemyValue) {
 
-        health = 21;
+        health = enemyHealth;
+        value = enemyValue;
     }
 
     void FixedUpdate() {
 
         if (health < 0.05) {
             Game gameData = FindObjectOfType<Game>();
-            gameData.UpdateCash(10);
+            gameData.UpdateCash(value);
             Die();
         }
     }

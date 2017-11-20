@@ -18,6 +18,9 @@ TagManager:
   - BuildBasicTowerButton
   - Undefined
   - SellBasicTowerButton
+  - Game
+  - Canvas
+  - Lighting
   layers:
   - Default
   - TransparentFX

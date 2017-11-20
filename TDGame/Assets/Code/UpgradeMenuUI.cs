@@ -11,7 +11,6 @@ public class UpgradeMenuUI : MonoBehaviour {
     private GridManager gridManager;
     private int row;
     private int col;
-    private int diag;
 
     private float SELL_BASIC_TOWER;
 
@@ -24,7 +23,6 @@ public class UpgradeMenuUI : MonoBehaviour {
 
         row = active.ReturnRow();
         col = active.ReturnColumn();
-        diag = active.ReturnDiagonal();
     }
 
     public void Initialize(Cell cell) {

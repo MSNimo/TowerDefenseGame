@@ -23,6 +23,8 @@ public class Base : MonoBehaviour {
         if (health < 0.5) {
 
             Destroy(gameObject);
+            Game game = FindObjectOfType<Game>();
+            game.Lose();
         }
 	}
 }

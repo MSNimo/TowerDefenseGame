@@ -88,10 +88,13 @@
     <Compile Include="Assets\Code\GridManager.cs" />
     <Compile Include="Assets\Code\Gun.cs" />
     <Compile Include="Assets\Code\HealthBar.cs" />
+    <Compile Include="Assets\Code\Marquee.cs" />
     <Compile Include="Assets\Code\MoveTo.cs" />
     <Compile Include="Assets\Code\Spawner.cs" />
     <Compile Include="Assets\Code\Tower.cs" />
     <Compile Include="Assets\Code\UpgradeMenuUI.cs" />
+    <Compile Include="Assets\Code\WaveManager.cs" />
+    <Compile Include="Assets\Code\WaveUI.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

@@ -15,13 +15,13 @@ public class Game : MonoBehaviour {
     // Use this for initialization
 
     void Start () {
-        int STARTING_CASH = 10000;
+
+        int STARTING_CASH = 150;
         playerCash = STARTING_CASH;
         active = null;
         _bmenu = Resources.Load("BuildMenu");
         _umenu = Resources.Load("UpgradeMenu");
         canvas = FindObjectOfType<Canvas>();
-
         COST_OF_BASIC_TOWER = 50;
     }
 
@@ -37,12 +37,12 @@ public class Game : MonoBehaviour {
 
         if (active == null) {
             //Destroy Current Menu Instance
-            Debug.Log("null");
+            //Debug.Log("null");
         }
 
         else {
 
-            Debug.Log(active.ReturnRow() + ", " + active.ReturnColumn() + ", " + active.ReturnDiagonal());
+            //Debug.Log(active.ReturnRow() + ", " + active.ReturnColumn() + ", " + active.ReturnDiagonal());
 
             if (active.IsBuilt()) {
                 //Call Upgrade Menu
@@ -77,7 +77,38 @@ public class Game : MonoBehaviour {
     }
 
     // Update is called once per frame
+
+    public void Lose() {
+
+        GameObject[] gos = FindObjectsOfType<GameObject>();
+
+        foreach (GameObject go in gos) {
+
+            if (go.tag != "Game" && go.tag != "Canvas" && go.tag != "MainCamera" && go.tag != "Lighting") {
+
+                Destroy(go);  
+            }
+        }
+        GameObject loserText = (GameObject)Object.Instantiate(Resources.Load("LoserText"));
+        loserText.transform.SetParent(canvas.transform, false);
+    }
+
+    public void Win() {
+
+        GameObject[] gos = FindObjectsOfType<GameObject>();
+
+        foreach (GameObject go in gos) {
+
+            if (go.tag != "Game" && go.tag != "Canvas" && go.tag != "MainCamera" && go.tag != "Lighting") {
+
+                Destroy(go);
+            }
+        }
+        GameObject winnerText = (GameObject)Object.Instantiate(Resources.Load("WinnerText"));
+        winnerText.transform.SetParent(canvas.transform, false);
+    }
+
     void Update () {
-		
+
 	}
 }

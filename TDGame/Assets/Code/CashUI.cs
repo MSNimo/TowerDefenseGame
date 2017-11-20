@@ -10,7 +10,7 @@ public class CashUI : MonoBehaviour {
 	
 	void Start () {
         
-        int STARTING_CASH = 10000;
+        int STARTING_CASH = 150;
         cash = STARTING_CASH;
         cashText = GetComponent<Text>();
         cashText.text = "Cash: $" + cash; 
